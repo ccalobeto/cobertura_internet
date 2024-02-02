@@ -1,0 +1,14 @@
+{
+  "name": "cobertura_internet",
+  "version": "2.0.0",
+  "description": "El presente repositorio muestra el proceso de preparación y transformación de datos cuya fuente en pdf contiene las tecnologías a nivel nacional del servicio de internet de Entel.",
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

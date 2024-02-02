@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cobertura de Internet</title>
+	<link rel="stylesheet" type="text/css" href="./src/css/base.css">
+	<link rel="stylesheet" type="text/css" href="./src/css/visualization.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1>Cobertura de Internet</h1>
+		<div class="intro"> El presente gráfico muestra la cobertura a nivel nacional del servicio de internet móvil de
+			Entel por
+			centro poblado.
+			La data corresponde a <b>noviembre del 2022</b> y se obtuvo del <a
+				href="https://www.entel.pe/wp-content/uploads/2022/11/listado-ccpp-con-cobertura-movil-3Q2022.pdf">siguiente
+				documento en pdf</a>. El proceso de preparación y transformación de los datos
+			se encuentra en el siguiente <a href="https://github.com/ccalobeto/cobertura_internet">repositorio de github.</a>
+		</div>
+		<div class="filters-container">
+			<p id="viewof-technology"></p>
+			<div class="intro">Haz click en las cajas para mostrar la red internet móvil y posiciona el cursor en cualquier
+				punto para mostrar
+				el centro poblado y su provincia.</div>
+			<div id="peruChart"></div>
+		</div>
+	</div>
+
+	<!-- Load your scripts here -->
+
+	<script type="module">
+		import { Runtime, Inspector } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+		import define from "https://api.observablehq.com/@ccalobeto/cobertura-internet.js?v=4";
+		new Runtime().module(define, name => {
+			if (name === "updatedData") return true;
+			if (name === "viewof technology") return new Inspector(document.querySelector("#viewof-technology"));
+			if (name === "peruChart") return new Inspector(document.querySelector("#peruChart"));
+		});
+	</script>
+</body>
+
+</html>
